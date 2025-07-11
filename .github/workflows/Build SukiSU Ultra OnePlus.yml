@@ -539,7 +539,6 @@ jobs:
         run: |
           cd kernel_workspace/kernel_platform
           CONFIG_FILE=./common/arch/arm64/configs/gki_defconfig
-          echo 'CONFIG_LOCALVERSION="-LuffyOP_⚡"' >> "$CONFIG_FILE"
           KERNEL_VERSION="${{ env.KERNEL_VERSION }}"
 
           # SukiSU Ultra configuration
