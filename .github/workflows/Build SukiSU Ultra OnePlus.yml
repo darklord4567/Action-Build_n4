@@ -6,7 +6,7 @@ on:
         type: choice
         description: "Configuration file"
         required: true
-        default: oneplus_ace2_pro_v
+        default: oneplus_nord_4_v
         options:
           - oneplus_nord_ce4_lite_5g_v
           - oneplus_nord_ce4_v
