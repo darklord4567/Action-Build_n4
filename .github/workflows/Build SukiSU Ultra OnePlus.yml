@@ -52,12 +52,12 @@ on:
         type: string
         description: "Custom build time (Enter F to use current time)"
         required: false
-        default: "Fri May 30 04:01:05 UTC 2025"
+        default: "F"
       SUFFIX:
         type: string
         description: "Custom kernel suffix (leave empty for a random string)"
         required: false
-        default: ""
+        default: "LuffyOP_SukiSU_"
       FAST_BUILD:
         type: boolean
         description: "Enable fast build?"
