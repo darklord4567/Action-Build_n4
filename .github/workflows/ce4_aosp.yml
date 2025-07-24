@@ -298,6 +298,19 @@ jobs:
           fi
           rm kernel_platform/msm-kernel/android/abi_gki_protected_exports_* || echo "No protected exports!"
           rm kernel_platform/msm-kernel/android/abi_gki_protected_exports_* || echo "No protected exports!"
+
+      - name: Debug 
+        run: |
+          echo "pwd!!!!!!!!!!!!!!!!"
+          pwd
+          echo "ls!!!!!!!!!!!"
+          ls
+          echo " cd kernel_workspace !!!!!!!!!!!!!!"
+          cd kernel_workspace
+          echo "pwd!!!!!!!!!!!!!!!!"
+          pwd
+          echo "ls!!!!!!!!!!!"
+          ls
       # Custom kernel suffix
       - name: Custom Kernel Suffix if set
         if: ${{ github.event.inputs.SUFFIX != '' }}
