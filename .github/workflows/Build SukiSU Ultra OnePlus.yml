@@ -701,8 +701,8 @@ jobs:
 
       - name: Make AnyKernel3
         run: |
-          git clone https://github.com/Numbersf/AnyKernel3 --depth=1
-          rm -rf ./AnyKernel3/.git
+          git clone https://github.com/darklord4567/AnyKernel3_onplus_snapd.git --depth=1
+          rm -rf ./AnyKernel3_onplus_snapd/.git
           mkdir -p kernel_workspace/kernel_platform/out/FinalImageFind/
           dir1=""
           dir2=""
@@ -722,7 +722,7 @@ jobs:
           fi
           if [ -n "$image_path" ] && [ -f "$image_path" ]; then
             echo "Image file finally located at: $image_path"
-            cp "$image_path" ./AnyKernel3/Image
+            cp "$image_path" ./AnyKernel3_onplus_snapd/Image
             cp "$image_path" kernel_workspace/kernel_platform/out/FinalImageFind/Image
           fi
           if [ -n "$dir2" ] && [ "${{ env.CPU }}" = "sm8750" ] && [ "${{ github.event.inputs.FAST_BUILD }}" = "false" ]; then
@@ -733,7 +733,7 @@ jobs:
                 if [ "$file" = "system_dlkm.erofs.img" ]; then
                   target_name="system_dlkm.img"
                 fi
-                cp "$dir2$file" "./AnyKernel3/$target_name"
+                cp "$dir2$file" "./AnyKernel3_onplus_snapd_onplus_snapd/$target_name"
               else
                 echo "$file does not exist, skipping copy"
               fi
@@ -749,7 +749,7 @@ jobs:
           ./patch_linux
           rm -f Image
           mv oImage Image
-          cp Image $GITHUB_WORKSPACE/AnyKernel3/Image
+          cp Image $GITHUB_WORKSPACE/AnyKernel3_onplus_snapd/Image
 
       - name: Download Latest SUSFS Module from CI
         if: ${{ github.event.inputs.SUSFS_CI == 'CI' }}
@@ -765,7 +765,7 @@ jobs:
               "https://api.github.com/repos/sidex15/susfs4ksu-module/actions/runs/$LATEST_RUN_ID/artifacts" | jq -r '.artifacts[0].archive_download_url')
             if [ -n "$ARTIFACT_URL" ]; then
               curl -L -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -o ksu_module_susfs_1.5.2+_CI.zip "$ARTIFACT_URL"
-              cp ksu_module_susfs_1.5.2+_CI.zip ./AnyKernel3/
+              cp ksu_module_susfs_1.5.2+_CI.zip ./AnyKernel3_onplus_snapd/
             else
               echo "Failed to fetch artifact URL"
             fi
@@ -776,7 +776,7 @@ jobs:
         continue-on-error: true
         run: |
           wget -O ksu_module_susfs_1.5.2+_Release.zip https://github.com/sidex15/ksu_module_susfs/releases/latest/download/ksu_module_susfs_1.5.2+.zip
-          cp ksu_module_susfs_1.5.2+_Release.zip ./AnyKernel3/
+          cp ksu_module_susfs_1.5.2+_Release.zip ./AnyKernel3_onplus_snapd/
 
       - name: Download Latest SukiSU-Ultra APK from CI
         continue-on-error: true
@@ -797,7 +797,7 @@ jobs:
             else
               echo "Downloading from: $artifact_url"
               curl -fL -H "Authorization: token $GITHUB_TOKEN" -o manager.zip "$artifact_url"
-              unzip -j manager.zip "*.apk" -d ./AnyKernel3/
+              unzip -j manager.zip "*.apk" -d ./AnyKernel3_onplus_snapd/
             fi
           fi
 
@@ -834,7 +834,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: AnyKernel3_SukiSUUltra_${{ env.KSUVER }}_${{ steps.file_clean.outputs.value }}${{ steps.suffix.outputs.value }}
-          path: ./AnyKernel3/*
+          path: ./AnyKernel3_onplus_snapd/*
 
       - name: Download and Unzip ZRAM
         if: ${{ github.event.inputs.ZRAM == 'true' }}
