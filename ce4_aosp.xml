@@ -6,6 +6,8 @@
   <remote name="inferno0230" fetch="https://github.com/OnePlus-Nord-CE4-development" />
 
   <project path="kernel_platform/msm-kernel" name="android_kernel_oneplus_sm8550" revision="lineage-22.2" remote="inferno0230" />
+
+  <project path="kernel_platform/sm8550-modules" name="android_kernel_oneplus_sm8550-modules" revision="lineage-22.2" remote="inferno0230" />
   
   <project remote="clo-la" name="kernel/prebuilts/build-tools" path="kernel_platform/prebuilts/kernel-build-tools" revision="a27755ba41db8a1487c7d2ac7d0da22ec5e593c7" upstream="refs/heads/ks-kernel.lnx.2.0.r1-rel"/>
   <project remote="clo-la" name="kernel_platform/build/bazel_common_rules" path="kernel_platform/build/bazel_common_rules" revision="2158c0cec82374e92e9599e3a8fd9ec5c10ba7ad" upstream="refs/heads/ks-kernel.lnx.2.0.r1-rel"/>
