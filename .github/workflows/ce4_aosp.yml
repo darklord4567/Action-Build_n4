@@ -303,6 +303,9 @@ jobs:
         if: ${{ github.event.inputs.SUFFIX != '' }}
         run: |
           cd kernel_workspace
+          git init
+          git config --global user.name "Numbersf"
+          git config --global user.email "263623064@qq.com"
           SUFFIX="${{ github.event.inputs.SUFFIX }}"
           ANDROID_VERSION="${{ env.ANDROID_VERSION }}"
           FAST_BUILD="${{ github.event.inputs.FAST_BUILD }}"
