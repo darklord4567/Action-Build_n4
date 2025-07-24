@@ -47,7 +47,7 @@ on:
         type: string
         description: "Branch name/Custom version identifier"
         required: false
-        default: "susfs-main/Numbersf"
+        default: "susfs-main/LuffyOP⚡"
       BUILD_TIME:
         type: string
         description: "Custom build time (Enter F to use current time)"
@@ -57,7 +57,7 @@ on:
         type: string
         description: "Custom kernel suffix (leave empty for a random string)"
         required: false
-        default: "LuffyOP_SukiSU_"
+        default: "LuffyOP⚡_SukiSU"
       FAST_BUILD:
         type: boolean
         description: "Enable fast build?"
@@ -420,7 +420,7 @@ jobs:
           echo "Branch name: $BRANCH_NAME"
           echo "Custom version identifier: $CUSTOM_TAG"
 
-          curl -LSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh" | bash -s "$BRANCH_NAME"
+          curl -LSs "https://raw.githubusercontent.com/Luffy-456/SukiSU_Kernel_Nord4/refs/heads/main/Scripts/SukiSu_setup.sh" | bash -s "$BRANCH_NAME"
           cd ./KernelSU
 
           KSU_API_VERSION=$(curl -fsSL "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/$BRANCH_NAME/kernel/Makefile" | \
@@ -785,7 +785,7 @@ jobs:
       - name: Upload AnyKernel3
         uses: actions/upload-artifact@v4
         with:
-          name: AnyKernel3_SukiSUUltra_${{ env.KSUVER }}_${{ steps.file_clean.outputs.value }}${{ steps.suffix.outputs.value }}
+          name: AnyKernel3_SukiSUUltra_${{ env.KSUVER }}_${{ steps.file_clean.outputs.value }}${{ steps.suffix.outputs.value }}_LuffyOP⚡
           path: ./AnyKernel3_onplus_snapd/*
 
       - name: Download and Unzip ZRAM
